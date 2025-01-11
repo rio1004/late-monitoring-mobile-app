@@ -7,7 +7,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 // import { useColorScheme } from "react-native";
 import { Image, StyleSheet, Platform } from "react-native";
 
-export default function InfoBlock() {
+export default function FeedBlock() {
   const theme = Colors[useColorScheme() ?? "light"];
 
   return (
