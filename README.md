@@ -4,14 +4,17 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Get started
 
-1. Install dependencies
-
+1. Use the correct Node.js version
    ```bash
-   yarn
+   nvm use 22
    ```
 
-2. Start the app
+2. Install dependencies
+   ```bash
+   yarn install
+   ```
 
+3. Start the app
    ```bash
     npx expo start
    ```
@@ -49,7 +52,6 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-
 ## Wireframe
 
-- [FIGMA] (https://www.figma.com/design/3uxTPbP34xQLDRJDrzs092/Untitled?node-id=0-1&t=nxTUBrXbq5CT1SxA-1)
+- [FIGMA](https://www.figma.com/design/3uxTPbP34xQLDRJDrzs092/Untitled?node-id=0-1&t=nxTUBrXbq5CT1SxA-1)
