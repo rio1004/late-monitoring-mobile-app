@@ -11,14 +11,19 @@ export default function InfoBlock() {
   const theme = Colors[useColorScheme() ?? "light"];
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="subtitle">TOTAL : -800</ThemedText>
+    <ThemedView style={styles.content}>
+      <ThemedText type="title2" >TOTAL : -800</ThemedText>
+      <ThemedText type="title2">TODAY : -800</ThemedText>
+      <ThemedText type="title2">ACHIVEMENT : you win perfect</ThemedText>
     </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  content: {
+    height: 200,
+    padding: 32,
+    gap: 16,
+    overflow: "hidden",
   },
 });

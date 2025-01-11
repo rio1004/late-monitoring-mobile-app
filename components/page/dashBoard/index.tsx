@@ -1,11 +1,15 @@
-import {  StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import FeedBlock from "./FeedsBlock";
 import InfoBlock from "./InfoBlock";
 
-const data = {
-  infoBlock: 'awd'
-}
+const defaultValue = {
+  infoBlock: "awd",
+  feedsBlock: [
+    { title: "Work Week", content: "awdwd" },
+    { title: "Info", content: "dawd" },
+  ],
+};
 
 export default function DashBoard() {
   return (

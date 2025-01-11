@@ -11,14 +11,16 @@ export default function FeedBlock() {
   const theme = Colors[useColorScheme() ?? "light"];
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView style={styles.content}>
       <ThemedText type="subtitle">TOTAL : -800</ThemedText>
     </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  content: {
+    padding: 32,
+    gap: 16,
+    overflow: "hidden",
   },
 });
