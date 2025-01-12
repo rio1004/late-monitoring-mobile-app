@@ -1,20 +1,31 @@
-import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import * as FileSystem from 'expo-file-system';
-import { Image, StyleSheet, Platform, Button } from "react-native";
+import { StyleSheet, Button } from "react-native";
+import { useAsyncStorage } from "@/hooks/useDashBoardStorage";
+
+interface StorageData {
+  name: string;
+}
 
 export default function FeedBlock() {
-  const theme = Colors[useColorScheme() ?? "light"];
+  const [value, setValue] = useAsyncStorage<StorageData>('DashBoard');
+
+  // Function to handle setting values with a delay
+  const handleSetValue = async (newValue: StorageData) => {
+    await setValue(newValue); // Ensure async setValue doesn't block the UI
+  };
 
   return (
     <ThemedView style={styles.content}>
-      <ThemedText type="subtitle">TOTAL : -800</ThemedText>
-      <Button title="test" onPress={()=>{ console.log(
-        'test: ', FileSystem.documentDirectory
-      )}} />
+      <ThemedText type="subtitle">TOTAL : {value?.name}</ThemedText>
+      <Button
+        title="Set to Tamina"
+        onPress={() => handleSetValue({ name: "tamina" })}
+      />
+      <Button
+        title="Set to Raya"
+        onPress={() => handleSetValue({ name: "Raya" })}
+      />
     </ThemedView>
   );
 }
