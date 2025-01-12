@@ -3,9 +3,8 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-// import { useColorScheme } from "@/hooks/useColorScheme.web";
-// import { useColorScheme } from "react-native";
-import { Image, StyleSheet, Platform } from "react-native";
+import * as FileSystem from 'expo-file-system';
+import { Image, StyleSheet, Platform, Button } from "react-native";
 
 export default function FeedBlock() {
   const theme = Colors[useColorScheme() ?? "light"];
@@ -13,6 +12,9 @@ export default function FeedBlock() {
   return (
     <ThemedView style={styles.content}>
       <ThemedText type="subtitle">TOTAL : -800</ThemedText>
+      <Button title="test" onPress={()=>{ console.log(
+        'test: ', FileSystem.documentDirectory
+      )}} />
     </ThemedView>
   );
 }

@@ -21,7 +21,7 @@ export default function InfoBlock() {
 
 const styles = StyleSheet.create({
   content: {
-    height: 200,
+    height: '30%',
     padding: 32,
     gap: 16,
     overflow: "hidden",
