@@ -1,41 +1,19 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState, useEffect } from "react";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-// Define the type for the value stored in AsyncStorage
-type AsyncStorageHook<T> = [T | defaultValueType, (value: T) => void];
-
-// Custom hook for using AsyncStorage with types
-type defaultValueType = {
-  total: number;
-};
-const defaultValue = {
-  total: 0,
+type DashBoardType = {
+  total?: number;
+  name?: string;
+  today?: number;
+  achievement?: string;
 };
 
-export function useAsyncStorage<T = any>(key: string): AsyncStorageHook<T> {
-  const [value, setValueState] = useState<T | defaultValueType>(defaultValue);
+const DashBoardInit = { total: 0, today: 0, achievement: "" };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const storedItem = await AsyncStorage.getItem(key);
-        if (storedItem) {
-          setValueState(JSON.parse(storedItem));
-        }
-      } catch (error) {
-        console.error("Failed to load item from AsyncStorage", error);
-      }
-    })();
-  }, []);
+const storage = createJSONStorage<DashBoardType>(() => AsyncStorage);
 
-  const setValue = async (newValue: T) => {
-    try {
-      setValueState(newValue);
-      await AsyncStorage.setItem(key, JSON.stringify(newValue));
-    } catch (error) {
-      console.error("Failed to set item in AsyncStorage", error);
-    }
-  };
-
-  return [value, setValue];
-}
+export const dashBoardAtom = atomWithStorage<DashBoardType>(
+  "dashboard",
+  DashBoardInit,
+  storage
+);

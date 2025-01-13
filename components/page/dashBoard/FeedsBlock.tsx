@@ -1,30 +1,32 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { StyleSheet, Button } from "react-native";
-import { useAsyncStorage } from "@/hooks/useDashBoardStorage";
-
-interface StorageData {
-  name: string;
-}
+import { dashBoardAtom } from "@/hooks/useDashBoardStorage";
+import { useSetAtom } from "jotai";
 
 export default function FeedBlock() {
-  const [value, setValue] = useAsyncStorage<StorageData>('DashBoard');
-
-  // Function to handle setting values with a delay
-  const handleSetValue = async (newValue: StorageData) => {
-    await setValue(newValue); // Ensure async setValue doesn't block the UI
-  };
+  const setDashBoardAtom = useSetAtom(dashBoardAtom);
 
   return (
     <ThemedView style={styles.content}>
-      <ThemedText type="subtitle">TOTAL : {value?.name}</ThemedText>
       <Button
         title="Set to Tamina"
-        onPress={() => handleSetValue({ name: "tamina" })}
+        onPress={() =>
+          setDashBoardAtom((prev) => ({
+            ...prev,
+            total: 12,
+          }))
+        }
       />
       <Button
         title="Set to Raya"
-        onPress={() => handleSetValue({ name: "Raya" })}
+        onPress={() =>
+          setDashBoardAtom((prev) => ({
+            ...prev,
+            total: -15.1,
+            achievement: "Raya Achievement",
+          }))
+        }
       />
     </ThemedView>
   );

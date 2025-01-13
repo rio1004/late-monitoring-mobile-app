@@ -1,29 +1,42 @@
 import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
-// import { useColorScheme } from "@/hooks/useColorScheme.web";
-// import { useColorScheme } from "react-native";
-import { Image, StyleSheet, Platform } from "react-native";
+import { dashBoardAtom } from "@/hooks/useDashBoardStorage";
+import { useAtom, useAtomValue } from "jotai";
+import { StyleSheet } from "react-native";
+
 
 export default function InfoBlock() {
-  const theme = Colors[useColorScheme() ?? "light"];
+  const value = useAtomValue(dashBoardAtom)
 
   return (
     <ThemedView style={styles.content}>
-      <ThemedText type="title2" >TOTAL : -800</ThemedText>
-      <ThemedText type="title2">TODAY : -800</ThemedText>
-      <ThemedText type="title2">ACHIVEMENT : you win perfect</ThemedText>
+      <div style={styles.row}>
+        <ThemedText type="title2">TOTAL LOST:</ThemedText>
+        <ThemedText type="title2">{value.total} PHP</ThemedText>
+      </div>
+      <div style={styles.row}>
+        <ThemedText type="title2">TODAY :</ThemedText>
+        <ThemedText type="title2">{value?.today} PHP</ThemedText>
+      </div>
+      <div style={styles.row}>
+        <ThemedText type="title2">ACHIVEMENT :</ThemedText>
+        <ThemedText type="title2">{value?.achievement}</ThemedText>
+      </div>
     </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
   content: {
-    height: '30%',
+    height: "30%",
     padding: 32,
     gap: 16,
     overflow: "hidden",
+  },
+  row: {
+    display: "flex",
+    justifyContent: "space-between",
+    // display: 'jus'
   },
 });
