@@ -52,6 +52,9 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-## Wireframe
 
+## Wireframe
 - [FIGMA](https://www.figma.com/design/3uxTPbP34xQLDRJDrzs092/Untitled?node-id=0-1&t=nxTUBrXbq5CT1SxA-1)
+
+## Stame Management
+- [JOTAI](https://jotai.org/docs/guides/react-native)
