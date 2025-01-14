@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import FeedBlock from "./FeedsBlock";
 import InfoBlock from "./InfoBlock";
+import { Card } from "@/components/Design/Card";
 
 const defaultValue = {
   infoBlock: "awd",
@@ -14,8 +15,12 @@ const defaultValue = {
 export default function DashBoard() {
   return (
     <ThemedView style={styles.container}>
-      <InfoBlock />
-      <FeedBlock />
+      <Card>
+        <InfoBlock />
+      </Card>
+      <Card>
+        <FeedBlock />
+      </Card>
     </ThemedView>
   );
 }
