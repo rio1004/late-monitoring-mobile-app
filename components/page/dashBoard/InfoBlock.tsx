@@ -1,13 +1,13 @@
 import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { dashBoardAtom } from "@/hooks/useDashBoardStorage";
+import { profileSettingAtom } from "@/hooks/useDashBoardStorage";
 import { useAtom, useAtomValue } from "jotai";
 import { StyleSheet } from "react-native";
 
 
 export default function InfoBlock() {
-  const value = useAtomValue(dashBoardAtom)
+  const value = useAtomValue(profileSettingAtom)
 
   return (
     <ThemedView style={styles.content}>

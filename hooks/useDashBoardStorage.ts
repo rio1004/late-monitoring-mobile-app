@@ -1,19 +1,19 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-type DashBoardType = {
+type ProfileSettingsType = {
   total?: number;
   name?: string;
   today?: number;
   achievement?: string;
 };
 
-const DashBoardInit = { total: 0, today: 0, achievement: "" };
+const ProfileSettingInit = { total: 0, today: 0, achievement: "" };
 
-const storage = createJSONStorage<DashBoardType>(() => AsyncStorage);
+const storage = createJSONStorage<ProfileSettingsType>(() => AsyncStorage);
 
-export const dashBoardAtom = atomWithStorage<DashBoardType>(
+export const profileSettingAtom = atomWithStorage<ProfileSettingsType>(
   "dashboard",
-  DashBoardInit,
+  ProfileSettingInit,
   storage
 );
