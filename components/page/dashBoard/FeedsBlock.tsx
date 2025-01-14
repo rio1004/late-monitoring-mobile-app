@@ -3,12 +3,13 @@ import { ThemedView } from "@/components/ThemedView";
 import { StyleSheet, Button } from "react-native";
 import { profileSettingAtom } from "@/hooks/useDashBoardStorage";
 import { useSetAtom } from "jotai";
+import { Card } from "@/components/Design/Card";
 
 export default function FeedBlock() {
   const setDashBoardAtom = useSetAtom(profileSettingAtom);
 
   return (
-    <ThemedView style={styles.content}>
+    <Card>
       <Button
         title="Set to Tamina"
         onPress={() =>
@@ -28,7 +29,7 @@ export default function FeedBlock() {
           }))
         }
       />
-    </ThemedView>
+    </Card>
   );
 }
 

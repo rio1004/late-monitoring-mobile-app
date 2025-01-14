@@ -15,12 +15,9 @@ const defaultValue = {
 export default function DashBoard() {
   return (
     <ThemedView style={styles.container}>
-      <Card>
-        <InfoBlock />
-      </Card>
-      <Card>
-        <FeedBlock />
-      </Card>
+      <InfoBlock />
+
+      <FeedBlock />
     </ThemedView>
   );
 }

@@ -32,18 +32,19 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   children,
   footerContent,
+  ...props
 }) => {
-  
-
   return (
-    <view>
-      {children && <View style={styles.cardContainer}>{children}</View>}
+    <view style={styles.cardContainer} {...props}>
+      {children}
     </view>
   );
 };
 
 const styles = StyleSheet.create({
   cardContainer: {
+    // flex: 1,
+    padding: 20,
     borderRadius: 16,
     overflow: "hidden",
     elevation: 5, // Android shadow
@@ -52,8 +53,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 8,
     marginBottom: 16,
-    backgroundColor: primary, 
-    marginInline: 10
+    backgroundColor: primary,
+    marginInline: 10,
   },
-
 });
