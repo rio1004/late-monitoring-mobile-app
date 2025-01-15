@@ -20,6 +20,7 @@ interface CardProps {
   onPress?: () => void;
   children?: React.ReactNode;
   footerContent?: React.ReactNode; // Optional footer for additional actions or content
+  style?: any;
 }
 
 const theme = Colors[useColorScheme()];
@@ -32,10 +33,11 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   children,
   footerContent,
+  style,
   ...props
 }) => {
   return (
-    <view style={styles.cardContainer} {...props}>
+    <view style={styles.cardContainer} {...style} {...props}>
       {children}
     </view>
   );
