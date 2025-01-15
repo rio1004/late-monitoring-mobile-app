@@ -1,9 +1,6 @@
-export const formatCurrency = (amount: number | undefined): string => {
-  if (amount === undefined) {
-    return "N/A";
-  }
+export const formatCurrency = (amount: number | undefined): string | number => {
   return new Intl.NumberFormat("en-PH", {
     style: "currency",
     currency: "PHP",
-  }).format(amount);
+  }).format(amount ?? 0);
 };
