@@ -1,13 +1,11 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Image, Platform, View } from "react-native";
-
+import { Image, Platform, View, StyleSheet } from "react-native";
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorSchemeMod";
-import { ThemedText } from "@/components/ThemedText";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -21,10 +19,12 @@ export default function TabLayout() {
         headerStyle: {
           backgroundColor: Colors[colorScheme ?? "light"].background,
           borderBottomWidth: 0,
+          elevation: 0,
+          width: "100%", // Ensure full width
         },
-        // headerTintColor: Colors[colorScheme ?? "light"].text,
+        headerTintColor: Colors[colorScheme ?? "light"].text,
         headerTitle: () => (
-          <View style={{ flexDirection: "row", }}>
+          <View style={styles.header}>
             <Image
               source={require("@/assets/logo.png")} // Use your image path here
               style={{ width: 90, height: 40 }}
@@ -33,6 +33,7 @@ export default function TabLayout() {
               size={40}
               name="notification"
               color={theme.tabIconDefault}
+              style={styles.headerIcon}
             />
           </View>
         ),
@@ -76,3 +77,26 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  // TODO header not wrking properly in web but in mobile its working
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%", // Ensure it takes full width
+    // paddingHorizontal: 16, // Add some horizontal padding
+    boxSizing: "border-box", // To ensure padding doesn't cause overflow
+  },
+  headerIcon: {
+    paddingHorizontal: 4,
+    borderRadius: 10,
+    elevation: 5, // Android shadow
+    shadowColor: "#000", // iOS shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    marginBottom: 5,
+    backgroundColor: Colors["light"].primary,
+  },
+});

@@ -15,14 +15,14 @@ export default function InfoBlock() {
   ];
 
   return (
-    <Card>
+    <View>
       {data.map(({ label, value }, index) => (
         <View style={styles.row} key={index}>
           <ThemedText type="label">{label}</ThemedText>
           <ThemedText type="value">{value}</ThemedText>
         </View>
       ))}
-    </Card>
+    </View>
   );
 }
 

@@ -23,10 +23,11 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   children,
   footerContent,
+  style,
   ...props
 }) => {
   return (
-    <View style={styles.cardContainer} {...props}>
+    <View style={[styles.cardContainer, style]} {...props}>
       {children}
     </View>
   );
