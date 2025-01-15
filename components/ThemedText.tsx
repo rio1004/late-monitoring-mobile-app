@@ -33,13 +33,19 @@ const textStyles = {
     fontSize: scaleFont(15),
     fontWeight: "bold" as const,
     fontFamily: "Poppins",
-    lineHeight: scaleFont(50),
+    lineHeight: scaleFont(20),
+    // color: "#6c757d",
+    alignSelf: "flex-start",
   },
   value: {
     fontSize: scaleFont(20),
     fontWeight: "bold" as const,
     fontFamily: "Poppins",
-    lineHeight: scaleFont(50),
+    lineHeight: scaleFont(30),
+    // fontWeight: "600",
+    color: "#343a40",
+    alignSelf: "center",
+    marginTop: 8,
   },
   subtitle: {
     fontSize: scaleFont(20),
@@ -62,16 +68,5 @@ export function ThemedText({
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
-  return (
-    <Text
-      style={[
-        { color },
-        textStyles[type], // Apply styles dynamically based on type
-        style,
-      ]}
-      {...rest}
-    />
-  );
+  return <Text style={[{ color }, textStyles[type], style]} {...rest} />;
 }
-
-const styles = StyleSheet.create(textStyles);

@@ -15,15 +15,11 @@ export default function InfoBlock() {
   ];
 
   return (
-    <Card style={styles.card}>
+    <Card>
       {data.map(({ label, value }, index) => (
         <View style={styles.row} key={index}>
-          <ThemedText type="label" style={styles.label}>
-            {label}
-          </ThemedText>
-          <ThemedText type="value" style={styles.value}>
-            {value}
-          </ThemedText>
+          <ThemedText type="label">{label}</ThemedText>
+          <ThemedText type="value">{value}</ThemedText>
         </View>
       ))}
     </Card>
@@ -31,24 +27,8 @@ export default function InfoBlock() {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    padding: 16,
-    borderRadius: 8,
-    backgroundColor: "#f8f9fa",
-  },
   row: {
     flexDirection: "column",
     alignItems: "flex-start",
-  },
-  label: {
-    fontWeight: "bold",
-    color: "#6c757d",
-    alignSelf: "flex-start",
-  },
-  value: {
-    fontWeight: "600",
-    color: "#343a40",
-    alignSelf: "center",
-    marginTop: 8,
   },
 });

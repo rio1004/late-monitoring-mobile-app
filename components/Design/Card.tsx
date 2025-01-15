@@ -1,27 +1,17 @@
 import React from "react";
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  ImageSourcePropType,
-} from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { View, StyleSheet, ImageSourcePropType, ViewProps } from "react-native";
 import { useColorScheme } from "@/hooks/useColorSchemeMod";
 import { Colors } from "@/constants/Colors";
 
 // Define the types for the Card component props
-interface CardProps {
+type CardProps = ViewProps & {
   title?: string;
   description?: string;
-  image?: string | ImageSourcePropType; // Can be a URL or an image source
+  image?: string | ImageSourcePropType;
   onPress?: () => void;
   children?: React.ReactNode;
-  footerContent?: React.ReactNode; // Optional footer for additional actions or content
-  style?: any;
-}
+  footerContent?: React.ReactNode;
+};
 
 const theme = Colors[useColorScheme()];
 const { primary, background } = theme;
@@ -33,13 +23,12 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   children,
   footerContent,
-  style,
   ...props
 }) => {
   return (
-    <view style={styles.cardContainer} {...style} {...props}>
+    <View style={styles.cardContainer} {...props}>
       {children}
-    </view>
+    </View>
   );
 };
 
