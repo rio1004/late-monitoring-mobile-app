@@ -20,7 +20,7 @@ module.exports = ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: "./assets/logo.png",
       backgroundColor: "#ffffff",
     },
-    package: "com.taviefalcon.lma",
+    package: process.env.ANDROID_PACKAGE,
   },
   web: {
     bundler: "metro",
