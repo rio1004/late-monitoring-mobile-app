@@ -2,19 +2,23 @@ import { StyleSheet, View } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import { Card } from "@/components/Design/Card";
 import DevView from "./DevView";
+import SalaryInfo from "./SalaryInfo";
 
 const defaultValue = {
-  IndexBlock: [{ title: "Dev Content", content: <DevView /> }],
+  IndexBlock: [
+    { title: "Salary Info", contentwd: <SalaryInfo /> },
+    { title: "Dev Content", content: <DevView /> },
+  ],
 };
 
 export default function ProfileSetting() {
   return (
     <ThemedView style={styles.container}>
-      <View>
-        {defaultValue.IndexBlock.map(({ title, content }, index) => (
-          <Card key={index}>{content}</Card>
-        ))}
-      </View>
+      {defaultValue.IndexBlock.map(({ title, content }, index) => (
+        <Card title={title} key={index}>
+          {content}
+        </Card>
+      ))}
     </ThemedView>
   );
 }

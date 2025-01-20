@@ -13,21 +13,21 @@ export default function DevView() {
       <Button
         title="Set to Tamina"
         onPress={() =>
-          setDashBoardAtom((prev) => ({
-            ...prev,
+          setDashBoardAtom({
+            ...DashBoard,
             total: 12,
-          }))
+          })
         }
       />
       <Button
         title="Set to Raya"
         onPress={() =>
-          setDashBoardAtom((prev) => ({
-            ...prev,
+          setDashBoardAtom({
+            ...DashBoard,
             total: -15.1,
             today: 321,
             achievement: "Raya Achievement",
-          }))
+          })
         }
       />
 

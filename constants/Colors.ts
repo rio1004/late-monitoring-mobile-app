@@ -15,6 +15,11 @@ export const Colors = {
     icon: "#687076",
     tabIconDefault: "#687076",
     tabIconSelected: tintColorLight,
+    buttonStyle: {
+      backgroundColor: "#2196F3",
+      padding: 12,
+      borderRadius: 8,
+    },
   },
   dark: {
     primary: "#222831",
@@ -24,5 +29,10 @@ export const Colors = {
     icon: "#00ADB5",
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
+    buttonStyle: {
+      backgroundColor: "#2196F3",
+      padding: 12,
+      borderRadius: 8,
+    },
   },
 };
