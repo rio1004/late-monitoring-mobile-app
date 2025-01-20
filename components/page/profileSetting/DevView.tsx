@@ -1,12 +1,12 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { StyleSheet, Button, View } from "react-native";
+import { StyleSheet, Button, View, Text } from "react-native";
 import { profileSettingAtom } from "@/hooks/useDashBoardStorage";
-import { useSetAtom } from "jotai";
+import { useAtom } from "jotai";
 import { Card } from "@/components/Design/Card";
 
 export default function DevView() {
-  const setDashBoardAtom = useSetAtom(profileSettingAtom);
+  const [DashBoard, setDashBoardAtom] = useAtom(profileSettingAtom);
 
   return (
     <View>
@@ -25,10 +25,14 @@ export default function DevView() {
           setDashBoardAtom((prev) => ({
             ...prev,
             total: -15.1,
+            today: 321,
             achievement: "Raya Achievement",
           }))
         }
       />
+
+      <Text>Jotai profileSettingAtom: </Text>
+      <Text>{JSON.stringify(DashBoard, null, 2)}</Text>
     </View>
   );
 }

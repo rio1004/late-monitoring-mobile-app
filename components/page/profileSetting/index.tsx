@@ -7,7 +7,7 @@ const defaultValue = {
   IndexBlock: [{ title: "Dev Content", content: <DevView /> }],
 };
 
-export default function DashBoard() {
+export default function ProfileSetting() {
   return (
     <ThemedView style={styles.container}>
       <View>
