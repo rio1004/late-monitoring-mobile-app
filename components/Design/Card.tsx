@@ -13,8 +13,7 @@ type CardProps = ViewProps & {
   footerContent?: React.ReactNode;
 };
 
-const theme = Colors[useColorScheme()];
-const { primary, background } = theme;
+const { primary, background } = Colors[useColorScheme()];
 
 export const Card: React.FC<CardProps> = ({
   title,
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     // flex: 1,
     padding: 20,
-    borderRadius: 16,
+    borderRadius: 10,
     overflow: "hidden",
     elevation: 5, // Android shadow
     shadowColor: "#000", // iOS shadow

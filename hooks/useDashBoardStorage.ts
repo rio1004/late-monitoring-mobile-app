@@ -1,11 +1,13 @@
+import { SalaryType } from "@/components/page/profileSetting/SalaryInfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-type ProfileSettingsType = {
+export type ProfileSettingsType = {
   total?: number;
   name?: string;
   today?: number;
   achievement?: string;
+  salaryInfo?: SalaryType
 };
 
 const ProfileSettingInit = { total: 0, today: 0, achievement: "" };
