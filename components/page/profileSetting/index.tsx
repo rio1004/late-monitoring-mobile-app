@@ -6,7 +6,7 @@ import SalaryInfo from "./SalaryInfo";
 
 const defaultValue = {
   IndexBlock: [
-    { title: "Salary Info", contentwd: <SalaryInfo /> },
+    { title: "Salary Info", content: <SalaryInfo /> },
     { title: "Dev Content", content: <DevView /> },
   ],
 };
