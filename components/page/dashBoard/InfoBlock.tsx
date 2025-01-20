@@ -9,7 +9,7 @@ export default function InfoBlock() {
   const value = useAtomValue(profileSettingAtom);
 
   const data = [
-    { label: "TOTAL LOST:", value: formatCurrency(value.total) },
+    { label: "TOTAL LOST!:", value: formatCurrency(value.total) },
     { label: "TODAY:", value: formatCurrency(value.today) },
     { label: "ACHIEVEMENT:", value: value.achievement || "N/A" },
   ];
