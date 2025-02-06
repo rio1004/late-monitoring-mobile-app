@@ -62,5 +62,5 @@ To learn more about developing your project with Expo, look at the following res
 
 - [ReadMore](./docs/readme-eas.md)
 
-
+# Env Config WSL2
 - [WSL2 to Win11](https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking)
