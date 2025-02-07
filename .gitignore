@@ -39,5 +39,6 @@ app-example
 # eas.json
 # app.json
 /.test
-
+/android
+/ios
 .env
